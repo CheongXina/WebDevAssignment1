@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.7.1.js"></script>
+		<script src="lightbox2-2.11.4/src/js/lightbox.js"></script>
+    <script src="bxslider-4-4.2.12/src/js/jquery.bxslider.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<link href="lightbox2-2.11.4/src/css/lightbox.css" rel="stylesheet" />
+<link href="bxslider-4-4.2.12/src/css/jquery.bxslider.css" rel="stylesheet" />
+    </head>
+    <style>
+
+	.grid-container {
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+  padding: 0px;
+   justify-content: center;
+  align-items: center;
+   border-style: groove;
+   width: 600px;
+   
+   background-color:  rgba(255, 248, 214);
+   position: relative; /*makes it moveable*/
+  left: 30%;
+  
+}
+h1 {
+  margin-top: 0;
+}
+
+.grid-noflex {
+  background-color: rgba(255, 255, 255, 0.8);
+
+  padding: 20px;
+  font-size: 18px;
+  text-align: left;
+  width: 500px;
+  min-height: 180px; /*set a min/default height */
+    height: auto; 
+  justify-content: left; 
+  align-items: left-side; 
+  font-size: 16px;
+  border-style: outset;
+}
+
+	</style>
+    <body>
+	<div class = "grid-container">
+	<h1>Registration Form</h1>
+	<div class = "grid-noflex">
+	Enter your email:
+	<form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+    </form>
+	<form id="passwordForm">
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password">
+    </form>
+	</div>
+	<div class = "grid-noflex">
+	Name Examples:<input id = "fnameIn"></input> 
+  <ul class="slider">
+    <li>John</li>
+            <li>Michael</li>
+            <li>Josh</li>
+            <li>Pectin</li>
+            <li>Aaron</li>
+            <li>Naresh</li>
+            <li>Kumar</li>
+  </ul>
+	<form id="fnameForm">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname">
+    </form>
+	<form id="lnameForm">
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname">
+    </form>
+	</div>
+	<div class = "grid-noflex">
+	<form id="zipCodeForm">
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" name="zipCode">
+    </form>
+	<p id="PCvalidationResult"></p>
+	<form id="phoneNumberForm">
+        <label for="phoneNumber">Phone Number (US):</label>
+        <input type="text" id="phoneNumber" name="phoneNumber">
+    </form>
+	<button type="submit", id = "singleSubmitButton">Finalize Submit</button>
+	</div>
+	</div>
+	</body>
+    <script type="text/javascript" src="script.js"></script>
+  
+    <script src = "assingment5script.js"></script>
+</html>

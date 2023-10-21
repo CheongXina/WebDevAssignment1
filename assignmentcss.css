@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+    font-family: "Comic Sans MS", serif;
+}
+
+.box-one {
+   
+    position: absolute;
+    z-index: 9;
+    background-image: url('img/menu.gif');
+    background-size: 300px;
+    background-repeat: no-repeat;
+    border: 8px groove #c5b8b8;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+}
+#mydivheader {
+    font-size: 16px;
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    color: black;
+  }
+.box-two {
+    padding: 20px;
+    font-size: 16px;
+    background-color: rgba(177, 177, 253, 0.637);
+    border: 1px solid rgba(24, 24, 24, 0.486);
+}
+.my-input {
+    font-size: 16px;
+    width: 30%; /* Set input width to 50% of the parent div */
+  }
+
+  #displayInput {
+    font-size: 16px;
+  }

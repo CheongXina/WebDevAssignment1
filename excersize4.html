@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.7.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    </head>
+    <style>
+	.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 0px;
+   justify-content: center;
+  align-items: center;
+   border-style: groove;
+   width: 600px;
+   
+   background-color:  rgba(255, 248, 214);
+   position: relative; /*makes it moveable*/
+  left: 30%;
+  
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  width: 500px;
+   height: 180px;
+   display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  font-size: 16px;
+  
+}
+.grid-noflex {
+  background-color: rgba(255, 255, 255, 0.8);
+
+  padding: 20px;
+  font-size: 30px;
+  text-align: left;
+  width: 500px;
+   height: 180px;
+  justify-content: left; 
+  align-items: left-side; 
+  font-size: 16px;
+  border-style: outset;
+  
+  
+}
+	</style>
+    <body>
+	<div class = "grid-container">
+	<h1>Registration Form</h1>
+	<div class = "grid-noflex">
+	Enter your email:
+	<input id = "emailIn"></input>
+	<button id = "emailB">Enter</button><br>
+	<p id="validationResult"></p>
+	<br>Enter your password (4 char minimum):
+	<input id = "passIn"></input>
+	<button id = "passwordB">Enter</button>
+	</div>
+	<div class = "grid-noflex">
+	Enter your first name:<input id = "fnameIn"></input> <button id = "fnameButton">OK</button>
+	<p id="FNValidationResult"></p>
+	<br>Enter your last name:<input id = "lnameIn"></input> <button id = "lnameButton">OK</button>
+	<p id="LNValidationResult"></p>
+	</div>
+	<div class = "grid-noflex">
+	Enter your zip code (ie: ANA NAN): <br><br><input id = "zipIn"></input> <button id = "zipInButton">OK</button>
+	<p id="PCvalidationResult"></p>
+	Enter phone:<br><br><input id = "phoneIn"></input> <button id = "phoneInButton">OK</button>
+	<p id="PNvalidationResult"></p>
+	</div>
+	</div>
+	</body>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+	$(document).ready(function() {
+  $("#emailB").click(function() {
+    // ("#id") shorthand for selecting the element
+    var email = $("#emailIn").val();
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // check if string matches string pattern
+    if (emailRegex.test(email)) {
+      $("#validationResult").text("Valid").css("color", "green");
+    } else {
+      $("#validationResult").text("Invalid email address").css("color", "red");
+    }
+  });
+  //======================================
+  // postal code and phone number
+  $("#zipInButton").click(function() {
+    var postalC = $("#zipIn").val();
+    var postalCRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/;
+    if (postalCRegex.test(postalC)) {
+      $("#PCvalidationResult").text("Valid").css("color", "green");
+    } else {
+      $("#PCvalidationResult").text("Invalid ZIP code").css("color", "red");
+    }
+  });
+  $("#phoneInButton").click(function() {
+	var pn = $("#phoneIn").val();
+	var pnRegex = /^\d{3} \d{3} \d{4}$/;
+	if (pnRegex.test(pn)){ //test is built-in func to test a string
+	   $("#PNvalidationResult").text("Valid").css("color", "green");
+    } else {
+      $("#PNvalidationResult").text("Invalid number").css("color", "red");
+	}
+  });
+  //========================================
+  $("#fnameButton").click(function() {
+  var fname = $("#fnameIn").val();
+  var nameRegex = /^[A-Za-z]{2,20}$/;
+  if (nameRegex.test(fname)){
+	$("#FNValidationResult").text("Valid").css("color","green");
+  }
+  else {
+  $("#FNValidationResult").text("Not a real name").css("color","red");
+  }
+});
+   $("#lnameButton").click(function() {
+  var lname = $("#lnameIn").val();
+  var lnameRegex = /^[A-Za-z]{2,20}$/;
+  if (lnameRegex.test(lname)){
+	$("#LNValidationResult").text("Valid").css("color","green");
+  }
+  else {
+  $("#LNValidationResult").text("Not a real name").css("color","red");
+  }
+});
+});
+    </script>
+</html>

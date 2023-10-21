@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0px solid rgba(0, 0, 0, 0.0);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 50px
+  height: 50px
+}
+.calcwindow {
+  width: 70px;
+  height: 50px;
+}
+.borderCustom {
+
+  width: 200px;
+  height: 350px;
+ padding: 10px;
+ 
+  border-style: outset;
+}
+
+</style>
+</head>
+<body class = "borderCustom">
+<h1 >Calculator</h1>
+
+
+<input id = "myInput" type="text" class="calcwindow">
+<div class="grid-container" >
+
+  <div class="grid-item"onclick="send()"><button>Calculate</button></div>
+</div>
+<span id="result"></span>
+<script>
+var equation;
+var result;
+
+function send() {
+  //get the input element by its id
+  var inputElement = document.getElementById("myInput");
+  var inputValue = inputElement.value;
+  result = eval(inputValue);
+  document.getElementById("result").innerHTML = result;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.7.1.js"></script>
+    </head>
+    <style>
+	.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 0px;
+   justify-content: center;
+  align-items: center;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  width: 500px;
+  min-height: 180px;
+   display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.mouseOverItm {
+
+   width: 100px; 
+  height: 50px; 
+  padding: 20px;
+  background-color: #ff5733; 
+}
+.input-item {
+
+}
+.input-range {
+
+}
+	</style>
+    <body>
+	<h1 style="text-align:center;">Demonstrating JavaScript DOM</h1>
+	<div class = "grid-container">
+	<div class = "grid-item">
+	<h6 style="padding:0px;">Enter a text</h6>
+	<input id = "textInput">
+	</input>
+	<br>
+	<button id = "myButton">Click me!</button>
+	</div>
+	<div class = "grid-item">
+	<h6 style="padding:0px;">Enter a value between 1-10</h6>
+	<input id = "rangeIn">
+	</input>
+	<p id = "RangevalidationResult"> </p>
+	<br>
+	<button id = "checkrange">Check range</button>
+	</div>
+	<div class = "grid-item">
+	<h6 style="padding:0px;">Check the mouse over</h6>
+	<div class = "mouseOverItm">Mouse over me</div>
+	</div>
+	<div class = "grid-item">
+	<h6 style="padding:0px;">Show output</h6>
+	<span id = "display"></span>
+	<button id = "show"> show text </button><button id ="hide"> hide text</button>
+	</div>
+	</div>
+	</body>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+var textInput = document.getElementById("textInput");
+var inputValue = textInput.value;
+var element = document.querySelector('.mouseOverItm');
+var display = document.getElementById("display");
+
+function handleMouseOver() {
+    element.textContent = 'Thank you!'; 
+}
+
+element.addEventListener('mouseover', handleMouseOver); //not inline
+var button = document.getElementById("myButton");
+button.addEventListener("click", function() //inline
+
+{
+	inputValue = textInput.value;
+   display.textContent = inputValue;
+});
+var button1 = document.getElementById("show");
+var button2 = document.getElementById("hide");
+var button3 = document.getElementById("checkrange");
+button1.addEventListener("click", function()
+
+{
+	display.style.display = "block";
+});
+button2.addEventListener("click", function()
+
+{
+	display.style.display = "none";
+});
+button3.addEventListener("click", function() //check range
+
+{
+	var userInput = document.getElementById("rangeIn");
+	var inputValue = parseInt(userInput.value);
+	if (!isNaN(inputValue) && inputValue >= 1 && inputValue <= 10) {
+		$("#RangevalidationResult").text("Range is valid").css("color", "green");
+  } else {
+    $("#RangevalidationResult").text("Out of range (1-10)").css("color", "red");
+  }
+	
+});
+    </script>
+</html>

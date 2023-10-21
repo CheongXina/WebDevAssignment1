@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+    border-style:outset;
+    background: linear-gradient(to bottom, #999999, #5e5c5c);
+    width:300px;
+  display: grid;
+  grid-template-rows: 70px 70px 70px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+   left: 35%;
+   display: flex;
+   flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+.grid-item {
+
+  border: 0px solid rgba(0, 0, 0, 0.0);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 50px;
+  min-height: 120px;
+}
+.calcwindow {
+  width: 70px;
+  height: 50px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="grid-container" >
+
+  <h1 >Calculator</h1>
+
+  <input id = "myInput" type="text" class="calcwindow">
+  <div class="grid-item"onclick="send()">
+  <button>Calculate</button>
+  <br><br>
+  <span id="result"></span>
+  </div>
+</div>
+
+<script src = "assignment3.2script.js"></script>
+</body>
+</html>
