@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <style>
         .grid-container {
             display: grid;
@@ -51,10 +51,11 @@
             <button id="myButton">Click me!</button>
         </div>
         <div class="grid-item">
-             <form id="numberForm"><h6>Enter a number between 1-10</h6>
-        <input  id="numberInput" name="numberInput">
-        <input type="submit" value="Submit">
-    </form>
+            <form id="rangeForm">
+                <label for="range">Enter a number between 1-10:</label>
+                <input type="text" id="numberField" name="numberField" />
+                <button type="button" id="checkrange">Check range</button>
+            </form>
             <br />
         </div>
         <div class="grid-item">
@@ -68,7 +69,7 @@
             <button id="hide">Hide text</button>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             var textInput = document.getElementById("textInput");
             var inputValue = textInput.value;
@@ -99,33 +100,26 @@
                 display.style.display = "none";
             });
 
-          
-            form = $("#numberForm");
-          
-            form.validate({
-                rules: {
-                    numberInput: {
-						number: true,
-                        required: true,
-                        range: [1, 10]
+            button3.addEventListener("click", function () {
+                $("#rangeForm").validate({
+                    rules: {
+                        numberField: {
+                            required: true,
+                            range: [1, 10] // Use the range rule for 1 to 10
+                        }
+                    },
+                    messages: {
+                        numberField: {
+                            required: "Please enter a number between 1 and 10.",
+                            range: "Please enter a number between 1 and 10."
+                        }
+                    },
+                    submitHandler: function (form) {
+                        // Handle form submission here
+                        alert("Form submitted successfully!");
                     }
-                },
-                messages: {
-                    numberInput: {
-                        required: "Please enter a number between 1 and 10.",
-                        range: "Out of range",
-						number: "Not a number!"
-                    }
-                },
-                 submitHandler: function (form) {
-                    userInput = parseFloat($("#numberInput").val());
-                    if (userInput >= 1 && userInput <= 10) {
-						 alert("Success!");
-                        form.submit(); 
-                    } 
-                }
-            
-         });
+                });
+            });
         });
     </script>
 </body>
